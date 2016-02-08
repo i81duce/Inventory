@@ -28,9 +28,9 @@ public class Inventory {
                     String text = scanner.nextLine();
 
                     System.out.println("Now enter the quantity of " + text + ":" );
-                    String itemAmount = scanner.nextLine();
+                    String quantity = scanner.nextLine();
 
-                    InventoryItem item = new InventoryItem(text, "1");
+                    InventoryItem item = new InventoryItem(text, quantity);
                     items.add(item);
 
                 } else if (option.equals("3")) {
@@ -40,6 +40,12 @@ public class Inventory {
                         System.out.println(i + ". " + list.text + " - " + list.itemAmount);
                         i++;
                     }
+                    String text = scanner.nextLine();
+                    int num = Integer.valueOf(text);
+                    InventoryItem item = items.get(num-1);
+                    System.out.println("Enter new amount:");
+                    String newquantity = scanner.nextLine();
+                    item.itemAmount = newquantity;
 
                 } else if (option.equals("4")) {
                     System.out.println("Select which item to remove:");
@@ -48,6 +54,9 @@ public class Inventory {
                         System.out.println(i + ". " + list.text + " - " + list.itemAmount);
                         i++;
                     }
+                    String text = scanner.nextLine();
+                    int num = Integer.valueOf(text);
+                    items.remove(num-1);
 
                 } else {
                     System.out.println("Invalid Option");
